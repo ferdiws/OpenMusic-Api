@@ -32,6 +32,9 @@ class AlbumsHandler {
     if (songs.length) {
       album.songs = songs;
     }
+    if (album.coverUrl != null) {
+      album.coverUrl = `http://${process.env.HOST}:${process.env.PORT}/upload/file/covers/${album.coverUrl}`;
+    }
 
     const response = h.response({
       status: 'success',
